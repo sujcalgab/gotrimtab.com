@@ -20,6 +20,10 @@
     --line:#DDD8CC;
     --line-dark:rgba(247,245,242,0.16);
     --muted:#6B7280;
+    --scope-green:#16A34A;
+    --scope-green-tint:#EEF9F1;
+    --scope-red:#DC3B32;
+    --scope-red-tint:#FBEEED;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -90,25 +94,26 @@
     padding:88px 0 100px;
   }
   .hero-grid{
-    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+    max-width:960px; margin:0 auto; text-align:center;
   }
-  .hero .eyebrow{ color:var(--sage); margin-bottom:18px; }
+  .hero .eyebrow{ color:var(--sage); margin-bottom:18px; font-size:17px; }
   .hero h1{
-    font-size:clamp(38px, 5vw, 58px);
-    line-height:1.08;
+    font-size:clamp(30px, 4.4vw, 50px);
+    line-height:1.1;
     font-weight:700;
     color:var(--paper);
+    white-space:nowrap;
   }
   .hero h1 em{ font-style:normal; color:var(--sage); }
   .hero p.sub{
     font-family:'Newsreader', serif;
-    font-size:19px;
+    font-size:18px;
     line-height:1.65;
     color:#C7CDD3;
-    max-width:460px;
-    margin:22px 0 32px;
+    max-width:900px;
+    margin:22px auto 32px;
   }
-  .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-row{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
   .btn-primary{
     font-family:'IBM Plex Mono', monospace;
     font-size:13px; font-weight:500; letter-spacing:0.03em;
@@ -129,57 +134,6 @@
     display:inline-block;
   }
   .btn-ghost:hover{ border-color:var(--sage); background:rgba(155,161,146,0.08); }
-
-  /* Hero visual: boat changes course because of a small trim-tab deflection */
-  .hero-diagram{ display:flex; justify-content:center; align-items:center; position:relative; }
-  .hero-diagram svg{ width:100%; max-width:440px; height:auto; overflow:visible; }
-  .glow{ opacity:0.5; }
-  .course-guide{ stroke:var(--line-dark); stroke-width:1.4; stroke-dasharray:4 6; fill:none; }
-
-  .boat-assembly{
-    transform-origin:210px 190px;
-    animation:boatCourse 7s cubic-bezier(.65,0,.35,1) infinite;
-    filter:drop-shadow(0 16px 24px rgba(0,0,0,0.4));
-  }
-  .wake{ fill:none; stroke:var(--sage); stroke-width:2; stroke-linecap:round; }
-  .hull-shape{ fill:url(#hullGrad); }
-  .hull-rubrail{ fill:none; stroke:rgba(20,32,42,0.35); stroke-width:1.2; }
-  .teak-shape{ fill:url(#teakGrad); }
-  .cabin-shape{ fill:#20303D; stroke:rgba(0,0,0,0.3); stroke-width:1; }
-  .cabin-window{ stroke:#8FA3AF; stroke-width:1.6; stroke-linecap:round; opacity:0.5; }
-  .cleat{ fill:var(--paper); opacity:0.85; }
-  .callout-line{ stroke:var(--sage); stroke-width:1.2; fill:none; opacity:0.7; }
-  .callout-dot{ fill:var(--sage); }
-  .callout-label{
-    font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:500;
-    letter-spacing:0.06em; text-transform:uppercase; fill:#B9C0BC;
-  }
-  .rudder-group{
-    transform-origin:210px 250px;
-    animation:rudderMotion 7s cubic-bezier(.65,0,.35,1) infinite;
-  }
-  .rudder-shape{ fill:url(#bladeGrad); }
-  .tab-group{
-    transform-origin:210px 286px;
-    animation:tabMotion 7s cubic-bezier(.65,0,.35,1) infinite;
-  }
-  .tab-shape{ fill:url(#tabGrad); }
-
-  @keyframes tabMotion{
-    0%,8%{ transform:rotate(0deg); }
-    26%,54%{ transform:rotate(26deg); }
-    92%,100%{ transform:rotate(0deg); }
-  }
-  @keyframes rudderMotion{
-    0%,14%{ transform:rotate(0deg); }
-    34%,60%{ transform:rotate(-11deg); }
-    92%,100%{ transform:rotate(0deg); }
-  }
-  @keyframes boatCourse{
-    0%,20%{ transform:translate(0px,0px) rotate(0deg); }
-    52%,76%{ transform:translate(34px,-8px) rotate(13deg); }
-    96%,100%{ transform:translate(0px,0px) rotate(0deg); }
-  }
 
   /* ---------- SECTION HEADERS ---------- */
   .section-head{ max-width:960px; margin-bottom:44px; }
@@ -225,6 +179,45 @@
   .step-arrow{
     display:none;
   }
+
+  /* ---------- SCOPE (What I Do / What I Don't Do) ---------- */
+  .scope{ padding:96px 0; }
+  .scope-cols{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .scope-col{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:0 0 8px; overflow:hidden;
+    box-shadow:0 2px 14px rgba(28,46,61,0.05);
+  }
+  .scope-col-head{
+    display:flex; align-items:center; gap:12px;
+    padding:20px 26px;
+  }
+  .scope-col.do .scope-col-head{ background:var(--scope-green-tint); }
+  .scope-col.dont .scope-col-head{ background:var(--scope-red-tint); }
+  .scope-col-head h3{ font-size:17px; font-weight:700; }
+  .scope-col.do .scope-col-head h3{ color:#0F5C31; }
+  .scope-col.dont .scope-col-head h3{ color:#8C241C; }
+  .scope-badge{
+    width:26px; height:26px; border-radius:50%; flex:none;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .scope-col.do .scope-badge{ background:var(--scope-green); }
+  .scope-col.dont .scope-badge{ background:var(--scope-red); }
+  .scope-badge svg{ width:14px; height:14px; fill:none; }
+  .scope-list{ list-style:none; margin:0; padding:8px 26px 10px; }
+  .scope-list li{
+    display:flex; align-items:flex-start; gap:12px;
+    font-size:15.5px; line-height:1.5; color:var(--navy-soft);
+    font-family:'Newsreader', serif; padding:11px 0;
+    border-bottom:1px solid var(--sage-tint);
+  }
+  .scope-list li:last-child{ border-bottom:none; }
+  .scope-icon{ width:19px; height:19px; flex:none; margin-top:1px; }
+  .scope-note{
+    max-width:960px; font-size:16px; line-height:1.68; color:var(--navy-soft);
+    font-family:'Newsreader', serif; margin:28px 0 0;
+  }
+  .scope-note strong{ color:var(--navy); font-weight:600; }
 
   /* ---------- ABOUT ---------- */
   .about{
@@ -296,17 +289,14 @@
     .nav-cta{ display:none; }
     .nav-brand .icon-mark{ height:52px; }
     .nav-brand .word-tag{ height:40px; }
-    .hero-grid{ grid-template-columns:1fr; }
-    .hero-diagram{ order:-1; margin-bottom:8px; }
     .hero p.sub{ max-width:100%; }
+    .hero h1{ white-space:normal; }
     .cards{ grid-template-columns:1fr; }
     .steps{ grid-template-columns:1fr; }
+    .scope-cols{ grid-template-columns:1fr; }
     .fit-row{ grid-template-columns:1fr; }
   }
 
-  @media (prefers-reduced-motion: reduce){
-    .rud-group, .tab-group{ animation:none !important; }
-  }
   :focus-visible{ outline:2px solid var(--sage-deep); outline-offset:3px; }
 </style>
 </head>
@@ -321,6 +311,7 @@
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#problem">How I Can Help</a>
+      <a href="#scope">Scope</a>
       <a href="#about-me">About Me</a>
       <a href="#contact">Contact</a>
     </div>
@@ -331,110 +322,11 @@
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">Fractional COO · Consumer Goods</div>
-      <h1>Strategic Interventions.<br><em>Outsized Results.</em></h1>
-      <p class="sub">A trim tab is a small attachment on a boat's rudder that lets you steer something massive with minimal effort. That's the model — precise operational interventions that create outsized impact across the business.</p>
+      <h1>Strategic Interventions. <em>Outsized Results.</em></h1>
+      <p class="sub">A trim tab is a small attachment on a boat's rudder that lets you steer something massive with minimal effort.<br>That's the model — precise operational interventions that create outsized impact across the business.</p>
       <div class="btn-row">
         <a class="btn-primary" href="mailto:hello@gotrimtab.com">Get in touch</a>
       </div>
-    </div>
-    <div class="hero-diagram">
-      <svg viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A boat changing course after a small trim tab adjustment">
-        <defs>
-          <linearGradient id="hullGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#F5F3EE"/>
-            <stop offset="55%" stop-color="#DCD8CE"/>
-            <stop offset="100%" stop-color="#B8B3A6"/>
-          </linearGradient>
-          <linearGradient id="teakGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#9BA192"/>
-            <stop offset="100%" stop-color="#6E7566"/>
-          </linearGradient>
-          <linearGradient id="bladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4C5C6D"/>
-            <stop offset="55%" stop-color="#243645"/>
-            <stop offset="100%" stop-color="#141F29"/>
-          </linearGradient>
-          <linearGradient id="tabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#B7BDAE"/>
-            <stop offset="100%" stop-color="#82897B"/>
-          </linearGradient>
-          <radialGradient id="glowGrad" cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stop-color="#9BA192" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#9BA192" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <ellipse class="glow" cx="210" cy="190" rx="200" ry="190" fill="url(#glowGrad)"/>
-
-        <path class="course-guide" d="M 210 40 L 210 195 C 210 222, 224 244, 242 258"/>
-
-        <g class="boat-assembly">
-          <path class="wake" d="M 196 262 Q 203 258, 210 262 Q 217 266, 224 262" style="opacity:0.4"/>
-          <path class="wake" d="M 186 280 Q 198 273, 210 280 Q 222 287, 234 280" style="opacity:0.26"/>
-          <path class="wake" d="M 176 300 Q 193 290, 210 300 Q 227 310, 244 300" style="opacity:0.15"/>
-
-          <!-- hull: white fiberglass, smoother curved bow -->
-          <path class="hull-shape" d="M 210 54
-            C 233 68, 241 94, 241 122
-            L 241 228
-            Q 241 246, 221 246
-            L 199 246
-            Q 179 246, 179 228
-            L 179 122
-            C 179 94, 187 68, 210 54 Z"/>
-
-          <!-- thin dark rubrail for hull definition -->
-          <path class="hull-rubrail" d="M 210 54
-            C 233 68, 241 94, 241 122
-            L 241 228
-            Q 241 246, 221 246
-            L 199 246
-            Q 179 246, 179 228
-            L 179 122
-            C 179 94, 187 68, 210 54 Z"/>
-
-          <!-- teak foredeck at the bow -->
-          <path class="teak-shape" d="M 210 62
-            C 227 74, 233 94, 233 118
-            L 233 132
-            Q 210 140, 187 132
-            L 187 118
-            C 187 94, 193 74, 210 62 Z"/>
-
-          <!-- teak swim platform at the stern -->
-          <rect class="teak-shape" x="188" y="232" width="44" height="14" rx="3"/>
-
-          <!-- cabin / canopy -->
-          <rect class="cabin-shape" x="190" y="148" width="40" height="66" rx="9"/>
-          <path class="cabin-window" d="M 195 160 L 225 160"/>
-
-          <!-- deck cleats -->
-          <circle class="cleat" cx="210" cy="98" r="2.2"/>
-          <circle class="cleat" cx="197" cy="222" r="1.8"/>
-          <circle class="cleat" cx="223" cy="222" r="1.8"/>
-
-          <!-- rudder + trim tab at the stern -->
-          <g class="rudder-group">
-            <path class="rudder-shape" d="M 204 250 L 216 250 L 213 288 L 207 288 Z"/>
-            <g class="tab-group">
-              <path class="tab-shape" d="M 207 286 L 213 286 L 211 306 L 209 306 Z"/>
-            </g>
-          </g>
-        </g>
-
-        <!-- static callouts -->
-        <g class="callout">
-          <path class="callout-line" d="M 128 258 C 160 258, 185 262, 202 267"/>
-          <circle class="callout-dot" cx="202" cy="267" r="2.6"/>
-          <text class="callout-label" x="122" y="262" text-anchor="end">Rudder</text>
-        </g>
-        <g class="callout">
-          <path class="callout-line" d="M 296 312 C 260 312, 226 306, 213 298"/>
-          <circle class="callout-dot" cx="213" cy="298" r="2.6"/>
-          <text class="callout-label" x="302" y="316">Trim Tab</text>
-        </g>
-      </svg>
-    </div>
     </div>
   </div>
 </section>
@@ -593,6 +485,58 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="scope" id="scope">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Where I Add Value</div>
+      <h2>A strategic partner for the business — not another pair of hands in it.</h2>
+    </div>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="icon-check" viewBox="0 0 20 20">
+        <path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-x" viewBox="0 0 20 20">
+        <path d="M6 6 L14 14 M14 6 L6 14" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      </symbol>
+    </svg>
+
+    <div class="scope-cols">
+      <div class="scope-col do">
+        <div class="scope-col-head">
+          <span class="scope-badge"><svg class="scope-icon-badge"><use href="#icon-check"/></svg></span>
+          <h3>What I Do</h3>
+        </div>
+        <ul class="scope-list">
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Supply chain and manufacturing leadership</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Own governance, annual operating plan, and monthly routines</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Diagnose and fix root-cause issues across functions</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Guide major decisions — financing, capacity, M&amp;A</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Coach and upskill your team</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Represent operations at the board or investor level</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Embedded, ongoing engagement</span></li>
+        </ul>
+      </div>
+      <div class="scope-col dont">
+        <div class="scope-col-head">
+          <span class="scope-badge"><svg class="scope-icon-badge"><use href="#icon-x"/></svg></span>
+          <h3>What I Don't Do</h3>
+        </div>
+        <ul class="scope-list">
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Place purchase orders</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Audit and approve supplier invoices</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Tender freight or route shipments</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Run daily production schedules</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Function as a sales-ops analyst or coordinator</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Data entry and back-office administrative work</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>One-off project work</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="scope-note">In short: I set the direction, build the system, coach and guide your team, and own executive oversight of the functions — <strong>while your team runs the daily plays.</strong></p>
   </div>
 </section>
 
