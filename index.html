@@ -249,6 +249,36 @@
     content:""; position:absolute; left:0; top:7px; width:8px; height:8px;
     border-radius:50%; background:var(--sage);
   }
+  .flex-note{
+    margin-top:32px; background:rgba(155,161,146,0.08);
+    border:1px solid rgba(155,161,146,0.35); border-radius:10px;
+    padding:24px 28px; max-width:960px;
+  }
+  .flex-note strong{
+    display:block; font-family:'Space Grotesk', sans-serif; font-weight:700;
+    font-size:16.5px; color:var(--paper); margin-bottom:8px;
+  }
+  .flex-note p{
+    font-family:'Newsreader', serif; font-size:15.5px; line-height:1.65;
+    color:#C7CDD3; margin:0;
+  }
+  .limited-line{
+    margin:28px 0 0; font-family:'Newsreader', serif; font-style:italic;
+    font-size:15px; color:var(--sage);
+  }
+
+  /* ---------- RESULTS ---------- */
+  .results{ padding:96px 0; }
+  .results-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .results-grid .card{ padding:26px 24px; }
+  .results-grid .card h4{
+    font-family:'Space Grotesk', sans-serif; font-size:16.5px; font-weight:700;
+    color:var(--navy); margin:0 0 10px; line-height:1.3;
+  }
+  .results-grid .card p{
+    font-size:15px; line-height:1.6; color:var(--navy-soft);
+    font-family:'Newsreader', serif; margin:0;
+  }
 
   /* ---------- ABOUT ME (placeholder) ---------- */
   .about-me{ padding:88px 0; background:var(--paper); }
@@ -259,6 +289,12 @@
     font-family:'Newsreader', serif; margin:0 0 22px;
   }
   .about-me-body p:last-child{ margin-bottom:0; }
+  .career-strip{
+    margin-top:32px; padding-top:24px; border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    letter-spacing:0.03em; line-height:2; color:var(--muted);
+  }
+  .career-strip b{ color:var(--navy-soft); font-weight:600; }
 
   /* ---------- CONTACT ---------- */
   .contact{ padding:110px 0 100px; text-align:center; }
@@ -295,6 +331,7 @@
     .steps{ grid-template-columns:1fr; }
     .scope-cols{ grid-template-columns:1fr; }
     .fit-row{ grid-template-columns:1fr; }
+    .results-grid{ grid-template-columns:1fr; }
   }
 
   :focus-visible{ outline:2px solid var(--sage-deep); outline-offset:3px; }
@@ -312,6 +349,7 @@
       <a href="#home">Home</a>
       <a href="#problem">How I Can Help</a>
       <a href="#scope">Scope</a>
+      <a href="#results">Results</a>
       <a href="#about-me">About Me</a>
       <a href="#contact">Contact</a>
     </div>
@@ -363,8 +401,8 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">The Model</div>
-      <h2>An end-to-end integrator</h2>
-      <p>A senior executive and experienced operator who connects every function into one coherent operating system — so the business moves as one, instead of departments pulling in different directions.</p>
+      <h2>Enter the COO: An end-to-end integrator</h2>
+      <p>Ownership of core operational areas — manufacturing and supply chain — combined with holistic expertise across business functions, makes for an end-to-end integrator: a visionary founder's right hand, building the operating system that brings their vision to life.</p>
     </div>
 
     <div class="diagram-wrap">
@@ -492,7 +530,8 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Where I Add Value</div>
-      <h2>A strategic partner for the business — not another pair of hands in it.</h2>
+      <h2>A strategic partner for the business.</h2>
+      <p>Connecting every function into one coherent system — working closely with your CFO, CMO, and other executive leaders to turn strategy into outsized results.</p>
     </div>
 
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -511,7 +550,8 @@
           <h3>What I Do</h3>
         </div>
         <ul class="scope-list">
-          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Supply chain and manufacturing leadership</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Strategic &amp; executive-level support</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Steer supply chain and manufacturing performance</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Own governance, annual operating plan, and monthly routines</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Diagnose and fix root-cause issues across functions</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Guide major decisions — financing, capacity, M&amp;A</span></li>
@@ -526,17 +566,53 @@
           <h3>What I Don't Do</h3>
         </div>
         <ul class="scope-list">
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Day-to-day tactical execution</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Place purchase orders</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Audit and approve supplier invoices</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Tender freight or route shipments</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Run daily production schedules</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Function as a sales-ops analyst or coordinator</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Data entry and back-office administrative work</span></li>
-          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>One-off project work</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-red)"/><path d="M6.5 6.5 L13.5 13.5 M13.5 6.5 L6.5 13.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Single-deliverable, transactional projects</span></li>
         </ul>
       </div>
     </div>
-    <p class="scope-note">In short: I set the direction, build the system, coach and guide your team, and own executive oversight of the functions — <strong>while your team runs the daily plays.</strong></p>
+    <p class="scope-note">In short: I set the direction, build the system, coach and guide your team, and own executive oversight of the functions, while they run the daily plays.</p>
+  </div>
+</section>
+
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">A Track Record of Results</div>
+      <h2>Real-world outcomes, earned in the trenches over two decades.</h2>
+    </div>
+    <div class="results-grid">
+      <div class="card">
+        <h4>Scaling Manufacturing &amp; Supply Chain Operations</h4>
+        <p>Scaled manufacturing and supply chain operations to support 12x growth in under two years.</p>
+      </div>
+      <div class="card">
+        <h4>Turnarounds &amp; Root-Cause Fixes</h4>
+        <p>Cut distribution costs 32%, distressed inventory 66%, and working capital 30% in under 8 months.</p>
+      </div>
+      <div class="card">
+        <h4>Manufacturing &amp; Line Efficiency</h4>
+        <p>Modernized manufacturing — improving throughput 70% while cutting labor costs 40%.</p>
+      </div>
+      <div class="card">
+        <h4>Financial Planning &amp; Forecasting</h4>
+        <p>Architected an integrated business planning and forecasting model, combining sales &amp; operations planning with long-range financial forecasting.</p>
+      </div>
+      <div class="card">
+        <h4>Financing Strategy</h4>
+        <p>Negotiated and structured an asset-backed financing facility to fund raw material sourcing and scaling, and established business processes to ensure proper cash flow management.</p>
+      </div>
+      <div class="card">
+        <h4>M&amp;A</h4>
+        <p>Led operations integration following acquisition of a public company by another.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -559,6 +635,13 @@
       <li>Leadership wants visibility, not more headcount, or a full-time executive</li>
       <li>Values a partner who builds internal discipline, not dependency</li>
     </ul>
+
+    <div class="flex-note">
+      <strong>Good conversations don't need to fit a template.</strong>
+      <p>If you're outside this range but this resonates, let's talk anyway — for the right founder and the right company, I'll find a way to help, whether that's this model, a different structure, or an advisory relationship.</p>
+    </div>
+
+    <p class="limited-line">A limited practice, by design — about five clients at a time, so the work stays hands-on.</p>
   </div>
 </section>
 
@@ -568,9 +651,10 @@
       <div class="eyebrow">About Me</div>
     </div>
     <div class="about-me-body">
-      <p>I'm Sujit, the founder of Trimtab. I've spent 20+ years in operations, including Intel, Craft Brew Alliance, Anheuser-Busch InBev, Take Two Foods, and most recently as COO of Abbot's, but it was the move from big companies into the early-stage and founder-led world that hooked me. There's something genuinely exciting about the CPG space: innovative products, better-for-you brands, the founder stories behind them. I found real satisfaction in building the systems, processes, and discipline early on that let a small team run like a well-oiled machine — the kind bigger companies would envy (my Ph.D. in Chemical Engineering probably has something to do with that instinct).</p>
+      <p>I'm Sujit, the founder of Trimtab. I've spent 20+ years in operations, including Intel, Craft Brew Alliance, Anheuser-Busch InBev, Take Two Foods, and most recently as COO of Abbot's, but it was the move from big companies into the early-stage and founder-led world that hooked me. There's something genuinely exciting about the CPG space: innovative products, better-for-you brands, the founder stories behind them. I found real satisfaction in building the systems, processes, and discipline early on that let a small team run like a well-oiled machine — the kind bigger companies would envy (my Ph.D. in Chemical Engineering from the University of Michigan probably has something to do with that instinct).</p>
       <p>I thrive in ambiguity, and I'd rather be resourceful with what's actually in front of me than wait around for the ideal setup. Progress beats perfection any day. I'm at my best as the right-hand person to a visionary founder or CEO who needs someone to help turn the vision into an operation that actually runs.</p>
       <p>Based in beautiful Portland, OR, outside of work my wife and I are true wanderlusters at heart, always chasing the next adventure across the globe (we've lost count of the places by now), usually with a camera in hand for landscapes and city scenes alike. On the home front, things can sometimes get loud with rock and heavy metal, occasionally quieter for cocktail mixology experiments gone right (or wrong). And there's an adorable rescue pup who thinks all of this is about him.</p>
+      <p class="career-strip"><b>Abbot's</b> · COO, 2022–2026 &nbsp;—&nbsp; <b>Take Two Foods</b> · COO, 2021–2022 &nbsp;—&nbsp; <b>Anheuser-Busch InBev</b> · M&amp;A Integration, 2020 &nbsp;—&nbsp; <b>Craft Brew Alliance</b> · Managing Director, 2014–2020 &nbsp;—&nbsp; <b>Intel</b> · Global Sourcing &amp; Procurement, 2005–2014</p>
     </div>
   </div>
 </section>
