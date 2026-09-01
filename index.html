@@ -60,16 +60,15 @@
   .nav-inner{
     max-width:1080px; margin:0 auto; padding:16px 32px;
     display:flex; align-items:center; justify-content:space-between;
-    flex-wrap:wrap; row-gap:12px;
-    min-height:132px;
+    flex-wrap:nowrap; column-gap:36px;
+    min-height:100px;
   }
   .nav-brand{ display:flex; align-items:center; gap:16px; text-decoration:none; }
-  .nav-brand .icon-mark{ height:88px; width:auto; display:block; }
-  .nav-brand .word-tag{ height:70px; width:auto; display:block; }
-  .nav-links{ display:flex; align-items:center; flex-wrap:wrap; gap:26px; row-gap:8px; justify-content:flex-end; }
+  .nav-brand .full-logo{ height:88px; width:auto; display:block; }
+  .nav-links{ display:flex; align-items:center; flex-wrap:nowrap; gap:24px; justify-content:flex-end; }
   .nav-links a{
     font-family:'IBM Plex Mono', monospace;
-    font-size:16.5px; letter-spacing:0.02em;
+    font-size:16.5px; font-weight:500; letter-spacing:0.02em;
     text-decoration:none; color:var(--navy-soft);
     padding:6px 0; position:relative;
     white-space:nowrap;
@@ -107,6 +106,12 @@
     white-space:nowrap;
   }
   .hero h1 em{ font-style:normal; color:var(--sage); }
+  .hero p.hero-tagline{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:19px; font-weight:600;
+    color:var(--sage);
+    margin:20px 0 0;
+  }
   .hero p.sub{
     font-family:'Newsreader', serif;
     font-size:18px;
@@ -322,11 +327,10 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 860px){
-    .nav-inner{ padding:12px 20px; }
-    .nav-links{ order:3; width:100%; justify-content:center; gap:18px 22px; }
+    .nav-inner{ padding:12px 20px; flex-wrap:wrap; row-gap:12px; }
+    .nav-links{ order:3; width:100%; justify-content:center; flex-wrap:wrap; gap:18px 22px; }
     .nav-cta{ display:none; }
-    .nav-brand .icon-mark{ height:52px; }
-    .nav-brand .word-tag{ height:40px; }
+    .nav-brand .full-logo{ height:68px; }
     .hero p.sub{ max-width:100%; }
     .hero h1{ white-space:normal; }
     .cards{ grid-template-columns:1fr; }
@@ -344,8 +348,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-brand" href="#home">
-      <img class="icon-mark" src="icon_only.png" alt="">
-      <img class="word-tag" src="wordmark_tagline.png" alt="Trimtab — Strategic Interventions. Outsized Results.">
+      <img class="full-logo" src="Main_Full_Logo_Cropped.png" alt="Trimtab — Strategic Interventions. Outsized Results.">
     </a>
     <div class="nav-links">
       <a href="#home">Home</a>
@@ -361,8 +364,9 @@
 <section class="hero" id="home">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Fractional COO · Consumer Goods</div>
+      <div class="eyebrow">Fractional COO · Consumer&nbsp;Goods</div>
       <h1>Strategic Interventions. <em>Outsized Results.</em></h1>
+      <p class="hero-tagline">A founder's right hand for the business behind the brand.</p>
       <p class="sub">A trim tab is a small attachment on a boat's rudder that lets you steer something massive with minimal effort.<br>That's the model — precise operational interventions that create outsized impact across the business.</p>
       <div class="btn-row">
         <a class="btn-primary" href="mailto:hello@gotrimtab.com">Get in touch</a>
@@ -380,8 +384,8 @@
     </div>
     <div class="cards">
       <div class="card">
-        <h3>No documented processes</h3>
-        <p>Institutional knowledge lives in people's heads, not in systems that grow with your business and survive turnover.</p>
+        <h3>No processes or systems</h3>
+        <p>Institutional knowledge lives in people's heads, not in documented processes or integrated systems that grow with your business and survive turnover.</p>
       </div>
       <div class="card">
         <h3>No KPI visibility</h3>
@@ -434,7 +438,7 @@
         <g transform="translate(260,80)">
           <circle class="node-circle" r="41"/>
           <text class="node-icon-fill" x="0" y="11" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="600">$</text>
-          <text class="node-label" y="67">Finance</text>
+          <text class="node-label" y="-58">Finance</text>
         </g>
 
         <g transform="translate(415.9,170)">
@@ -511,17 +515,17 @@
         <div class="step">
           <span class="step-num">01 — Diagnose</span>
           <h4>Assess what's in place</h4>
-          <p>Process, KPIs, governance, and where the functions disconnect from each other.</p>
+          <p>Process, KPIs, governance, technology infrastructure, and where the functions disconnect.</p>
         </div>
         <div class="step">
           <span class="step-num">02 — Build</span>
           <h4>Set up the operating system</h4>
-          <p>Month-end routines, governance processes, KPI dashboards, and clear decision-making authority.</p>
+          <p>Month-end routines, governance processes, KPI dashboards, the tech stack that connects them all, and clear decision-making authority.</p>
         </div>
         <div class="step">
           <span class="step-num">03 — Run &amp; Transfer</span>
           <h4>Operate alongside your team</h4>
-          <p>Strategic oversight and coaching so your team can read the business and make the calls.</p>
+          <p>Strategic oversight and executive leadership — coaching your team to use the tools, read the business, make the calls, or bring recommendations to leadership.</p>
         </div>
       </div>
     </div>
@@ -556,10 +560,10 @@
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Steer supply chain and manufacturing performance</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Own governance, annual operating plan, and monthly routines</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Diagnose and fix root-cause issues across functions</span></li>
-          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Guide major decisions — financing, capacity, M&amp;A</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Guide major decisions — financing, capacity, technology, M&amp;A</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Coach and upskill your team</span></li>
           <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Represent operations at the board or investor level</span></li>
-          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Embedded, ongoing engagement</span></li>
+          <li><svg class="scope-icon" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="var(--scope-green)"/><path d="M5 10.5 L8.5 14 L15.5 6.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Embedded, ongoing engagement, built on long-term trust</span></li>
         </ul>
       </div>
       <div class="scope-col dont">
@@ -633,7 +637,7 @@
     </div>
 
     <ul class="checklist">
-      <li>Team ready to scale, systems not yet in place</li>
+      <li>Team motivated to grow, but needs mentorship building the systems underneath it</li>
       <li>Leadership wants visibility, not more headcount, or a full-time executive</li>
       <li>Values a partner who builds internal discipline, not dependency</li>
     </ul>
